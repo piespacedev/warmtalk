@@ -17,6 +17,7 @@ import { reachGoal } from "@/lib/metrika";
 const NAV_LINKS = [
   { href: "/about", label: "О сервисе" },
   { href: "/how-it-works", label: "Как это работает" },
+  { href: "/business", label: "Для бизнеса" },
   { href: "/for-psychologists", label: "Для психологов" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -27,7 +28,7 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between sm:h-20">
         <Logo />
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-6 xl:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -39,7 +40,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <Button
             variant="ghost"
             size="lg"
@@ -61,7 +62,7 @@ export function Header() {
         <Sheet>
           <SheetTrigger
             render={
-              <Button variant="ghost" size="icon-lg" className="rounded-full lg:hidden" />
+              <Button variant="ghost" size="icon-lg" className="rounded-full xl:hidden" />
             }
           >
             <Menu className="size-5" />

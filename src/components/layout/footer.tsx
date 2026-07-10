@@ -16,6 +16,7 @@ const COLUMNS = [
     title: "Компания",
     links: [
       { href: "/about", label: "О сервисе" },
+      { href: "/business", label: "Для бизнеса" },
       { href: "/for-psychologists", label: "Для психологов" },
       { href: "/contacts", label: "Контакты" },
     ],
