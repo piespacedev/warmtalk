@@ -149,12 +149,33 @@ export function CabinetView() {
                 transition={{ duration: 0.35 }}
                 className="flex flex-col items-center gap-6"
               >
-                <div className="relative flex size-40 items-center justify-center rounded-full border-4 border-dashed border-primary/30">
-                  <motion.div
-                    className="absolute inset-0 rounded-full border-4 border-t-primary border-r-transparent border-b-transparent border-l-transparent"
+                <div className="relative flex size-40 items-center justify-center">
+                  <motion.svg
+                    className="absolute inset-0 size-full"
+                    viewBox="0 0 50 50"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1.1, repeat: Infinity, ease: "linear" }}
-                  />
+                  >
+                    <circle
+                      cx="25"
+                      cy="25"
+                      r="22"
+                      fill="none"
+                      stroke="var(--primary)"
+                      strokeOpacity="0.15"
+                      strokeWidth="3.5"
+                    />
+                    <circle
+                      cx="25"
+                      cy="25"
+                      r="22"
+                      fill="none"
+                      stroke="var(--primary)"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeDasharray="35 200"
+                    />
+                  </motion.svg>
                   <span className="text-sm font-medium text-muted-foreground">
                     Ищем…
                   </span>
