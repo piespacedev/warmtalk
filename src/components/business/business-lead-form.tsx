@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { reachGoal } from "@/lib/metrika";
+import { ConsentCheckbox } from "@/components/shared/consent-checkbox";
 
 export function BusinessLeadForm() {
   const [company, setCompany] = useState("");
@@ -110,6 +111,7 @@ export function BusinessLeadForm() {
           rows={4}
         />
       </div>
+      <ConsentCheckbox />
       <Button
         type="submit"
         size="lg"
@@ -127,9 +129,6 @@ export function BusinessLeadForm() {
           Не получилось отправить. Попробуйте ещё раз.
         </p>
       )}
-      <p className="text-xs text-muted-foreground">
-        Отправляя заявку, вы соглашаетесь на обработку персональных данных.
-      </p>
     </form>
   );
 }

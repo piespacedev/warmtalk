@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { reachGoal } from "@/lib/metrika";
+import { ConsentCheckbox } from "@/components/shared/consent-checkbox";
 
 export function WaitlistForm({
   compact = false,
@@ -60,41 +61,44 @@ export function WaitlistForm({
             setLoading(false);
           }
         }}
-        className={cn("flex w-full flex-col gap-2.5 sm:flex-row", compact && "sm:gap-2")}
+        className="flex w-full flex-col gap-3"
       >
-        <Input
-          type="text"
-          required
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          placeholder="Email или телефон"
-          className={cn(
-            "rounded-full",
-            inverted
-              ? "border-transparent bg-white/95 text-foreground placeholder:text-muted-foreground"
-              : "border-border bg-background",
-            compact ? "h-10 px-4" : "h-14 px-6 text-base"
-          )}
-        />
-        <Button
-          type="submit"
-          size="lg"
-          disabled={loading}
-          className={cn(
-            "shrink-0 rounded-full",
-            inverted && "bg-white text-primary hover:bg-white/90",
-            compact ? "h-10 px-5 text-sm" : "h-14 px-7 text-base shadow-lg shadow-primary/25"
-          )}
-        >
-          {loading ? (
-            <Loader2 className={cn("animate-spin", compact ? "size-3.5" : "size-4")} />
-          ) : (
-            <>
-              Сообщить о запуске
-              <ArrowRight className={compact ? "size-3.5" : "size-4"} />
-            </>
-          )}
-        </Button>
+        <div className={cn("flex w-full flex-col gap-2.5 sm:flex-row", compact && "sm:gap-2")}>
+          <Input
+            type="text"
+            required
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Email или телефон"
+            className={cn(
+              "rounded-full",
+              inverted
+                ? "border-transparent bg-white/95 text-foreground placeholder:text-muted-foreground"
+                : "border-border bg-background",
+              compact ? "h-10 px-4" : "h-14 px-6 text-base"
+            )}
+          />
+          <Button
+            type="submit"
+            size="lg"
+            disabled={loading}
+            className={cn(
+              "shrink-0 rounded-full",
+              inverted && "bg-white text-primary hover:bg-white/90",
+              compact ? "h-10 px-5 text-sm" : "h-14 px-7 text-base shadow-lg shadow-primary/25"
+            )}
+          >
+            {loading ? (
+              <Loader2 className={cn("animate-spin", compact ? "size-3.5" : "size-4")} />
+            ) : (
+              <>
+                Сообщить о запуске
+                <ArrowRight className={compact ? "size-3.5" : "size-4"} />
+              </>
+            )}
+          </Button>
+        </div>
+        <ConsentCheckbox inverted={inverted} className="justify-center sm:justify-start" />
       </form>
       {error && (
         <p className={cn(inverted ? "text-white/90" : "text-destructive", "text-sm")}>

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { reachGoal } from "@/lib/metrika";
+import { ConsentCheckbox } from "@/components/shared/consent-checkbox";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -46,6 +47,7 @@ export function ContactForm() {
         <Label htmlFor="c-message">Сообщение</Label>
         <Textarea id="c-message" required placeholder="Расскажите, чем можем помочь" rows={5} />
       </div>
+      <ConsentCheckbox />
       <Button type="submit" size="lg" className="h-12 rounded-full text-base">
         Отправить
       </Button>

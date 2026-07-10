@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { reachGoal } from "@/lib/metrika";
+import { ConsentCheckbox } from "@/components/shared/consent-checkbox";
 
 export function ApplicationForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -49,12 +50,10 @@ export function ApplicationForm() {
           <Input id="experience" required placeholder="Например, 4 года" />
         </div>
       </div>
+      <ConsentCheckbox />
       <Button type="submit" size="lg" className="h-12 rounded-full text-base">
         Отправить заявку
       </Button>
-      <p className="text-xs text-muted-foreground">
-        Отправляя заявку, вы соглашаетесь на обработку персональных данных.
-      </p>
     </form>
   );
 }
