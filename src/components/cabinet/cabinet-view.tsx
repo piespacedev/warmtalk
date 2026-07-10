@@ -13,6 +13,7 @@ import {
   type Psychologist,
   type SessionRecord,
 } from "@/lib/cabinet-data";
+import { reachGoal } from "@/lib/metrika";
 
 type Stage = "idle" | "searching" | "found" | "call" | "ended";
 
@@ -44,6 +45,7 @@ export function CabinetView() {
   useEffect(() => () => clearAll(), []);
 
   function startSearch() {
+    reachGoal("cabinet_call_start");
     clearAll();
     setPsychologist(null);
     setSeconds(0);

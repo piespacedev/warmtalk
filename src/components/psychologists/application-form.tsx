@@ -5,6 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { reachGoal } from "@/lib/metrika";
 
 export function ApplicationForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -25,6 +26,7 @@ export function ApplicationForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        reachGoal("psychologist_application_submit");
         setSubmitted(true);
       }}
       className="flex flex-col gap-5 rounded-3xl border border-border bg-card p-7 sm:p-8"

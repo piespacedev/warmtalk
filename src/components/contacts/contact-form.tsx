@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { reachGoal } from "@/lib/metrika";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -26,6 +27,7 @@ export function ContactForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        reachGoal("contact_form_submit");
         setSubmitted(true);
       }}
       className="flex flex-col gap-5 rounded-3xl border border-border bg-card p-7 sm:p-8"

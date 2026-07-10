@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { HeroDemo } from "@/components/home/hero-demo";
+import { reachGoal } from "@/lib/metrika";
 
 export function Hero() {
   return (
@@ -32,6 +35,7 @@ export function Hero() {
               size="lg"
               className="h-14 rounded-full px-8 text-base shadow-lg shadow-primary/30"
               render={<Link href="/app" />}
+              onClick={() => reachGoal("hero_demo_click")}
             >
               Посмотреть демо
               <ArrowRight className="size-4" />
@@ -41,6 +45,7 @@ export function Hero() {
               size="lg"
               className="h-14 rounded-full border-border bg-background px-8 text-base"
               render={<Link href="/#waitlist" />}
+              onClick={() => reachGoal("hero_waitlist_click")}
             >
               Оставить контакт
             </Button>

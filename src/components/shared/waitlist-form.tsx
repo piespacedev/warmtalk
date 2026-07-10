@@ -5,6 +5,7 @@ import { CheckCircle2, ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { reachGoal } from "@/lib/metrika";
 
 export function WaitlistForm({
   compact = false,
@@ -51,6 +52,7 @@ export function WaitlistForm({
               body: JSON.stringify({ contact: value.trim() }),
             });
             if (!res.ok) throw new Error("failed");
+            reachGoal("waitlist_submit");
             setSubmitted(true);
           } catch {
             setError(true);

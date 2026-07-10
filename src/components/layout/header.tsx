@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
@@ -10,6 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { reachGoal } from "@/lib/metrika";
 
 const NAV_LINKS = [
   { href: "/about", label: "О сервисе" },
@@ -49,6 +52,7 @@ export function Header() {
             size="lg"
             className="h-11 rounded-full px-6 text-[15px] shadow-sm shadow-primary/25"
             render={<Link href="/app" />}
+            onClick={() => reachGoal("header_cta_click")}
           >
             Попробовать
           </Button>
@@ -91,6 +95,7 @@ export function Header() {
                 size="lg"
                 className="h-12 w-full rounded-full text-base"
                 render={<Link href="/app" />}
+                onClick={() => reachGoal("header_cta_click")}
               >
                 Попробовать
               </Button>

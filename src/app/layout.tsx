@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Unbounded, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { LaunchBanner } from "@/components/shared/launch-banner";
+import { YandexMetrika } from "@/components/shared/yandex-metrika";
 
 const heading = Unbounded({
   variable: "--font-heading",
@@ -30,6 +32,9 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${heading.variable} ${body.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <Suspense fallback={null}>
+          <YandexMetrika />
+        </Suspense>
         <LaunchBanner />
         <Header />
         <main className="flex-1">{children}</main>
