@@ -76,12 +76,33 @@ export function HeroDemo() {
                 transition={{ duration: 0.4 }}
                 className="flex flex-col items-center gap-4"
               >
-                <div className="relative flex size-28 items-center justify-center rounded-full border-4 border-dashed border-primary/40">
-                  <motion.div
-                    className="absolute inset-0 rounded-full border-4 border-t-primary border-r-transparent border-b-transparent border-l-transparent"
+                <div className="relative flex size-28 items-center justify-center">
+                  <motion.svg
+                    className="absolute inset-0 size-full"
+                    viewBox="0 0 50 50"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1.1, repeat: Infinity, ease: "linear" }}
-                  />
+                  >
+                    <circle
+                      cx="25"
+                      cy="25"
+                      r="22"
+                      fill="none"
+                      stroke="var(--primary)"
+                      strokeOpacity="0.15"
+                      strokeWidth="3.5"
+                    />
+                    <circle
+                      cx="25"
+                      cy="25"
+                      r="22"
+                      fill="none"
+                      stroke="var(--primary)"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeDasharray="35 200"
+                    />
+                  </motion.svg>
                   <span className="text-xs font-medium text-muted-foreground">
                     Ищем…
                   </span>
