@@ -1,7 +1,19 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+
+// Возвращает false на сервере и при первой отрисовке, true после гидратации —
+// без setState в эффекте. Канонический hydration-safe паттерн.
+const noopSubscribe = () => () => {};
+function useHydrated() {
+  return useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false
+  );
+}
 
 export function Reveal({
   children,
@@ -14,6 +26,16 @@ export function Reveal({
   delay?: number;
   y?: number;
 }) {
+  // Прогрессивное улучшение: на сервере и до гидратации рендерим контент
+  // полностью видимым, чтобы он не оставался скрытым в браузерах, где JS
+  // не выполняется или сильно замедлен (например, встроенный браузер Telegram).
+  // Анимацию появления включаем только после того, как JS реально отработал.
+  const hydrated = useHydrated();
+
+  if (!hydrated) {
+    return <div className={cn(className)}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={cn(className)}

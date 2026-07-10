@@ -43,7 +43,7 @@ export function HeroDemo() {
         </div>
 
         <div className="relative mt-auto mb-auto flex flex-1 items-center justify-center">
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             {stage === "idle" && (
               <motion.div
                 key="idle"

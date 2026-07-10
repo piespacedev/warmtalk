@@ -110,7 +110,7 @@ export function CabinetView() {
         <div className="pointer-events-none absolute -bottom-24 -left-16 size-72 rounded-full bg-primary/15 blur-3xl" />
 
         <div className="relative flex min-h-[420px] flex-col items-center justify-center">
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             {stage === "idle" && (
               <motion.div
                 key="idle"
