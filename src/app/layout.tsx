@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { LaunchBanner } from "@/components/shared/launch-banner";
 import { YandexMetrika } from "@/components/shared/yandex-metrika";
+import { JivoChat } from "@/components/shared/jivo-chat";
 
 const heading = Unbounded({
   variable: "--font-heading",
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <JivoChat />
       </body>
     </html>
   );
