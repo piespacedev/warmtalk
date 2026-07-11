@@ -4,7 +4,6 @@ export const OPERATOR = {
   shortName: "ИП Тамбов И. С.",
   inn: "231306265730",
   ogrnip: "322237500450071",
-  address: "352396, г. Кропоткин, Краснодарский край, ул. мкр-1, д. 2, кв. 160",
   email: "hello@warmtalk.ru",
   site: "warmtalk.ru",
 };
@@ -30,7 +29,6 @@ export const PRIVACY_SECTIONS: PrivacySection[] = [
     paragraphs: [
       `Оператор: ${OPERATOR.fullName}.`,
       `ИНН: ${OPERATOR.inn}. ОГРНИП: ${OPERATOR.ogrnip}.`,
-      `Адрес: ${OPERATOR.address}.`,
       `Адрес электронной почты для обращений по вопросам обработки персональных данных: ${OPERATOR.email}.`,
     ],
   },
