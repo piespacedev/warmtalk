@@ -14,6 +14,7 @@ import {
   type SessionRecord,
 } from "@/lib/cabinet-data";
 import { reachGoal } from "@/lib/metrika";
+import { CallVisual } from "@/components/shared/call-visual";
 
 type Stage = "idle" | "searching" | "found" | "call" | "ended";
 
@@ -230,12 +231,12 @@ export function CabinetView() {
                 transition={{ duration: 0.35 }}
                 className="flex w-full max-w-md flex-col items-center gap-6"
               >
-                <div className="relative flex h-64 w-full items-center justify-center overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#2B2320] to-[#453A33]">
-                  <div
-                    className={`flex size-20 items-center justify-center rounded-full bg-gradient-to-br ${psychologist.gradient} text-xl font-semibold text-white`}
-                  >
-                    {psychologist.initials}
-                  </div>
+                <CallVisual
+                  initials={psychologist.initials}
+                  gradientClass={psychologist.gradient}
+                  avatarSize="size-20"
+                  className="h-64 rounded-[2rem]"
+                >
                   <span className="absolute top-4 left-4 rounded-full bg-black/30 px-3 py-1 text-xs font-medium text-white tabular-nums">
                     {formatDuration(seconds)}
                   </span>
@@ -247,7 +248,7 @@ export function CabinetView() {
                       Ваша камера выключена
                     </span>
                   )}
-                </div>
+                </CallVisual>
 
                 <div className="flex items-center gap-4">
                   <button

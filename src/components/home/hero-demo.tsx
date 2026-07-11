@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Mic, PhoneOff, Video } from "lucide-react";
+import { CallVisual } from "@/components/shared/call-visual";
 
 type Stage = "idle" | "searching" | "found" | "call";
 
@@ -148,14 +149,16 @@ export function HeroDemo() {
                 transition={{ duration: 0.4 }}
                 className="flex w-full flex-col items-center gap-4"
               >
-                <div className="relative flex h-40 w-full items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-[#2B2320] to-[#453A33]">
-                  <div className="flex size-16 items-center justify-center rounded-full bg-gradient-to-br from-lavender to-[#9B90FF] text-lg font-semibold text-white">
-                    АС
-                  </div>
+                <CallVisual
+                  initials="АС"
+                  gradientClass="from-lavender to-[#9B90FF]"
+                  avatarSize="size-16"
+                  className="h-40 rounded-3xl"
+                >
                   <span className="absolute top-3 left-3 rounded-full bg-black/30 px-2.5 py-1 text-[11px] font-medium text-white">
                     04:12
                   </span>
-                </div>
+                </CallVisual>
                 <div className="flex items-center gap-3">
                   <div className="flex size-10 items-center justify-center rounded-full bg-secondary text-muted-foreground">
                     <Mic className="size-4" />
